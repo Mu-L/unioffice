@@ -9,175 +9,172 @@
 // Use of this source code is governed by the UniDoc End User License Agreement
 // terms that can be accessed at https://unidoc.io/eula/
 
-package terms ;import (_b "encoding/xml";_g "fmt";_bd "github.com/unidoc/unioffice/v2";_f "github.com/unidoc/unioffice/v2/common/logger";_c "github.com/unidoc/unioffice/v2/schema/purl.org/dc/elements";);func (_ebg *LCSH )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u004c\u0043\u0053\u0048";
-e .EncodeToken (start );e .EncodeToken (_b .EndElement {Name :start .Name });return nil ;};func (_fde *LCSH )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_eccb ,_cfg :=d .Token ();if _cfg !=nil {return _g .Errorf ("\u0070\u0061r\u0073\u0069\u006eg\u0020\u004c\u0043\u0053\u0048\u003a\u0020\u0025\u0073",_cfg );
-};if _dac ,_aege :=_eccb .(_b .EndElement );_aege &&_dac .Name ==start .Name {break ;};};return nil ;};
+package terms ;import (_e "encoding/xml";_ed "fmt";_b "github.com/unidoc/unioffice/v2";_a "github.com/unidoc/unioffice/v2/common/logger";_gc "github.com/unidoc/unioffice/v2/schema/purl.org/dc/elements";);func (_ad *ElementOrRefinementContainer )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u0065\u006c\u0065\u006de\u006e\u0074\u004f\u0072\u0052\u0065\u0066\u0069\u006e\u0065m\u0065n\u0074\u0043\u006f\u006e\u0074\u0061\u0069n\u0065\u0072";
+e .EncodeToken (start );if _ad .Any !=nil {_ag :=_e .StartElement {Name :_e .Name {Local :"\u0064\u0063\u003a\u0061\u006e\u0079"}};e .EncodeElement (_ad .Any ,_ag );};e .EncodeToken (_e .EndElement {Name :start .Name });return nil ;};type ISO639_2 struct{};
 
-// ValidateWithPath validates the TGN and its children, prefixing error messages with path
-func (_dbcd *TGN )ValidateWithPath (path string )error {return nil };
-
-// Validate validates the URI and its children
-func (_ecb *URI )Validate ()error {return _ecb .ValidateWithPath ("\u0055\u0052\u0049")};
-
-// Validate validates the MESH and its children
-func (_cfce *MESH )Validate ()error {return _cfce .ValidateWithPath ("\u004d\u0045\u0053\u0048")};func NewISO3166 ()*ISO3166 {_eb :=&ISO3166 {};return _eb };func (_cdge *IMT )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u0049\u004d\u0054";
-e .EncodeToken (start );e .EncodeToken (_b .EndElement {Name :start .Name });return nil ;};func (_cee *RFC1766 )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_bdef ,_bad :=d .Token ();if _bad !=nil {return _g .Errorf ("\u0070\u0061\u0072\u0073in\u0067\u0020\u0052\u0046\u0043\u0031\u0037\u0036\u0036\u003a\u0020\u0025\u0073",_bad );
-};if _gc ,_ggb :=_bdef .(_b .EndElement );_ggb &&_gc .Name ==start .Name {break ;};};return nil ;};func (_dca *RFC1766 )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u0052F\u0043\u0031\u0037\u0036\u0036";e .EncodeToken (start );
-e .EncodeToken (_b .EndElement {Name :start .Name });return nil ;};
-
-// Validate validates the RFC3066 and its children
-func (_bab *RFC3066 )Validate ()error {return _bab .ValidateWithPath ("\u0052F\u0043\u0033\u0030\u0036\u0036");};func (_bfd *IMT )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_ade ,_afd :=d .Token ();if _afd !=nil {return _g .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u0049\u004d\u0054\u003a\u0020\u0025\u0073",_afd );
-};if _ceg ,_bga :=_ade .(_b .EndElement );_bga &&_ceg .Name ==start .Name {break ;};};return nil ;};type TGN struct{};
-
-// ValidateWithPath validates the W3CDTF and its children, prefixing error messages with path
-func (_cfcf *W3CDTF )ValidateWithPath (path string )error {return nil };func NewPoint ()*Point {_dde :=&Point {};return _dde };func NewURI ()*URI {_eaf :=&URI {};return _eaf };
-
-// ValidateWithPath validates the IMT and its children, prefixing error messages with path
-func (_dge *IMT )ValidateWithPath (path string )error {return nil };func NewMESH ()*MESH {_dbc :=&MESH {};return _dbc };type ISO3166 struct{};func (_bfc *ISO3166 )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_dc ,_ff :=d .Token ();
-if _ff !=nil {return _g .Errorf ("\u0070\u0061\u0072\u0073in\u0067\u0020\u0049\u0053\u004f\u0033\u0031\u0036\u0036\u003a\u0020\u0025\u0073",_ff );};if _acd ,_cbd :=_dc .(_b .EndElement );_cbd &&_acd .Name ==start .Name {break ;};};return nil ;};func (_gba *ElementsAndRefinementsGroup )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {_ea :for {_afc ,_aa :=d .Token ();
-if _aa !=nil {return _aa ;};switch _efcd :=_afc .(type ){case _b .StartElement :switch _efcd .Name {case _b .Name {Space :"\u0068\u0074\u0074\u0070\u003a\u002f\u002f\u0070\u0075\u0072\u006c\u002e\u006f\u0072\u0067/\u0064c\u002f\u0065\u006c\u0065\u006d\u0065\u006e\u0074\u0073\u002f\u0031\u002e\u0031\u002f",Local :"\u0061\u006e\u0079"}:_gba .Any =_c .NewAny ();
-if _bc :=d .DecodeElement (_gba .Any ,&_efcd );_bc !=nil {return _bc ;};default:_f .Log .Debug ("\u0073\u006b\u0069\u0070\u0070\u0069\u006e\u0067\u0020\u0075\u006e\u0073\u0075\u0070\u0070\u006f\u0072\u0074ed\u0020e\u006c\u0065\u006d\u0065\u006e\u0074\u0020\u006f\u006e\u0020\u0045\u006ce\u006d\u0065\u006e\u0074\u0073\u0041\u006e\u0064\u0052\u0065\u0066\u0069\u006e\u0065\u006d\u0065\u006et\u0073\u0047\u0072\u006f\u0075\u0070\u0020\u0025\u0076",_efcd .Name );
-if _cb :=d .Skip ();_cb !=nil {return _cb ;};};case _b .EndElement :break _ea ;case _b .CharData :};};return nil ;};type MESH struct{};type W3CDTF struct{};func NewRFC3066 ()*RFC3066 {_dbcg :=&RFC3066 {};return _dbcg };func NewLCSH ()*LCSH {_bfb :=&LCSH {};
-return _bfb };func NewUDC ()*UDC {_dcfb :=&UDC {};return _dcfb };type ElementOrRefinementContainer struct{Any *_c .Any ;};
-
-// ValidateWithPath validates the MESH and its children, prefixing error messages with path
-func (_acb *MESH )ValidateWithPath (path string )error {return nil };func (_eac *TGN )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u0054\u0047\u004e";e .EncodeToken (start );e .EncodeToken (_b .EndElement {Name :start .Name });
-return nil ;};
-
-// Validate validates the ISO3166 and its children
-func (_eed *ISO3166 )Validate ()error {return _eed .ValidateWithPath ("\u0049S\u004f\u0033\u0031\u0036\u0036");};
-
-// ValidateWithPath validates the RFC3066 and its children, prefixing error messages with path
-func (_cgcg *RFC3066 )ValidateWithPath (path string )error {return nil };type Point struct{};type RFC1766 struct{};
-
-// Validate validates the TGN and its children
-func (_dbg *TGN )Validate ()error {return _dbg .ValidateWithPath ("\u0054\u0047\u004e")};type ISO639_2 struct{};func NewElementOrRefinementContainer ()*ElementOrRefinementContainer {_eea :=&ElementOrRefinementContainer {};return _eea ;};type URI struct{};
-func NewIMT ()*IMT {_ab :=&IMT {};return _ab };
-
-// ValidateWithPath validates the ISO3166 and its children, prefixing error messages with path
-func (_gbgf *ISO3166 )ValidateWithPath (path string )error {return nil };func (_cbf *Point )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u0050\u006f\u0069n\u0074";e .EncodeToken (start );e .EncodeToken (_b .EndElement {Name :start .Name });
-return nil ;};func NewDDC ()*DDC {_gbg :=&DDC {};return _gbg };func (_gf *UDC )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_bbd ,_gbb :=d .Token ();if _gbb !=nil {return _g .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u0055\u0044\u0043\u003a\u0020\u0025\u0073",_gbb );
-};if _bbfa ,_de :=_bbd .(_b .EndElement );_de &&_bbfa .Name ==start .Name {break ;};};return nil ;};func (_eef *ISO639_2 )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u0049\u0053\u004f\u0036\u0033\u0039\u002d\u0032";
-e .EncodeToken (start );e .EncodeToken (_b .EndElement {Name :start .Name });return nil ;};func (_ggba *UDC )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u0055\u0044\u0043";e .EncodeToken (start );e .EncodeToken (_b .EndElement {Name :start .Name });
-return nil ;};func (_d *DCMIType )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u0044\u0043\u004d\u0049\u0054\u0079\u0070\u0065";e .EncodeToken (start );e .EncodeToken (_b .EndElement {Name :start .Name });return nil ;
-};type RFC3066 struct{};func (_gac *W3CDTF )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u0057\u0033\u0043\u0044\u0054\u0046";e .EncodeToken (start );e .EncodeToken (_b .EndElement {Name :start .Name });return nil ;};
-func (_gaa *TGN )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_cega ,_fae :=d .Token ();if _fae !=nil {return _g .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u0054\u0047\u004e\u003a\u0020\u0025\u0073",_fae );};if _dda ,_dfc :=_cega .(_b .EndElement );
-_dfc &&_dda .Name ==start .Name {break ;};};return nil ;};type UDC struct{};func (_cc *RFC3066 )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u0052F\u0043\u0033\u0030\u0036\u0036";e .EncodeToken (start );e .EncodeToken (_b .EndElement {Name :start .Name });
-return nil ;};func (_fe *Point )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_aaf ,_cdc :=d .Token ();if _cdc !=nil {return _g .Errorf ("\u0070\u0061\u0072\u0073\u0069\u006e\u0067\u0020\u0050\u006f\u0069\u006et\u003a\u0020\u0025\u0073",_cdc );
-};if _bec ,_adb :=_aaf .(_b .EndElement );_adb &&_bec .Name ==start .Name {break ;};};return nil ;};
-
-// Validate validates the Period and its children
-func (_adf *Period )Validate ()error {return _adf .ValidateWithPath ("\u0050\u0065\u0072\u0069\u006f\u0064");};func (_cfd *URI )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_bee ,_deg :=d .Token ();if _deg !=nil {return _g .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u0055\u0052\u0049\u003a\u0020\u0025\u0073",_deg );
-};if _dec ,_ggf :=_bee .(_b .EndElement );_ggf &&_dec .Name ==start .Name {break ;};};return nil ;};
-
-// Validate validates the ElementOrRefinementContainer and its children
-func (_df *ElementOrRefinementContainer )Validate ()error {return _df .ValidateWithPath ("\u0045\u006c\u0065\u006de\u006e\u0074\u004f\u0072\u0052\u0065\u0066\u0069\u006e\u0065m\u0065n\u0074\u0043\u006f\u006e\u0074\u0061\u0069n\u0065\u0072");};type Box struct{};
-
-
-// Validate validates the Box and its children
-func (_ec *Box )Validate ()error {return _ec .ValidateWithPath ("\u0042\u006f\u0078")};func (_aed *LCC )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_cg ,_caf :=d .Token ();if _caf !=nil {return _g .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u004c\u0043\u0043\u003a\u0020\u0025\u0073",_caf );
-};if _eaa ,_afef :=_cg .(_b .EndElement );_afef &&_eaa .Name ==start .Name {break ;};};return nil ;};func NewRFC1766 ()*RFC1766 {_acc :=&RFC1766 {};return _acc };func NewISO639_2 ()*ISO639_2 {_fc :=&ISO639_2 {};return _fc };type DCMIType struct{};
-
-// ValidateWithPath validates the LCSH and its children, prefixing error messages with path
-func (_aef *LCSH )ValidateWithPath (path string )error {return nil };
-
-// ValidateWithPath validates the DCMIType and its children, prefixing error messages with path
-func (_bbf *DCMIType )ValidateWithPath (path string )error {return nil };
-
-// Validate validates the IMT and its children
-func (_ced *IMT )Validate ()error {return _ced .ValidateWithPath ("\u0049\u004d\u0054")};
-
-// ValidateWithPath validates the DDC and its children, prefixing error messages with path
-func (_ce *DDC )ValidateWithPath (path string )error {return nil };
-
-// ValidateWithPath validates the RFC1766 and its children, prefixing error messages with path
-func (_afa *RFC1766 )ValidateWithPath (path string )error {return nil };type DDC struct{};func NewElementsAndRefinementsGroup ()*ElementsAndRefinementsGroup {_cf :=&ElementsAndRefinementsGroup {};return _cf ;};func (_cada *MESH )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u004d\u0045\u0053\u0048";
-e .EncodeToken (start );e .EncodeToken (_b .EndElement {Name :start .Name });return nil ;};
-
-// Validate validates the LCC and its children
-func (_aedc *LCC )Validate ()error {return _aedc .ValidateWithPath ("\u004c\u0043\u0043")};func (_ggc *URI )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u0055\u0052\u0049";e .EncodeToken (start );e .EncodeToken (_b .EndElement {Name :start .Name });
-return nil ;};func (_be *ElementOrRefinementContainer )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {_bg :for {_ga ,_cdg :=d .Token ();if _cdg !=nil {return _cdg ;};switch _gec :=_ga .(type ){case _b .StartElement :switch _gec .Name {case _b .Name {Space :"\u0068\u0074\u0074\u0070\u003a\u002f\u002f\u0070\u0075\u0072\u006c\u002e\u006f\u0072\u0067/\u0064c\u002f\u0065\u006c\u0065\u006d\u0065\u006e\u0074\u0073\u002f\u0031\u002e\u0031\u002f",Local :"\u0061\u006e\u0079"}:_be .Any =_c .NewAny ();
-if _ad :=d .DecodeElement (_be .Any ,&_gec );_ad !=nil {return _ad ;};default:_f .Log .Debug ("\u0073k\u0069\u0070\u0070\u0069\u006e\u0067\u0020un\u0073\u0075\u0070\u0070\u006f\u0072\u0074\u0065\u0064\u0020\u0065\u006c\u0065\u006de\u006e\u0074 \u006f\u006e\u0020E\u006c\u0065\u006d\u0065\u006e\u0074\u004f\u0072\u0052\u0065\u0066\u0069\u006e\u0065\u006d\u0065n\u0074\u0043on\u0074\u0061\u0069n\u0065\u0072\u0020\u0025\u0076",_gec .Name );
-if _aea :=d .Skip ();_aea !=nil {return _aea ;};};case _b .EndElement :break _bg ;case _b .CharData :};};return nil ;};
-
-// Validate validates the ISO639_2 and its children
-func (_efd *ISO639_2 )Validate ()error {return _efd .ValidateWithPath ("\u0049\u0053\u004f\u0036\u0033\u0039\u005f\u0032");};
-
-// ValidateWithPath validates the ISO639_2 and its children, prefixing error messages with path
-func (_fd *ISO639_2 )ValidateWithPath (path string )error {return nil };
-
-// Validate validates the LCSH and its children
-func (_bddg *LCSH )Validate ()error {return _bddg .ValidateWithPath ("\u004c\u0043\u0053\u0048")};func (_gg *Box )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_fa ,_bdd :=d .Token ();if _bdd !=nil {return _g .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u0042\u006f\u0078\u003a\u0020\u0025\u0073",_bdd );
-};if _ac ,_e :=_fa .(_b .EndElement );_e &&_ac .Name ==start .Name {break ;};};return nil ;};func NewW3CDTF ()*W3CDTF {_cge :=&W3CDTF {};return _cge };func (_dcg *RFC3066 )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_adfe ,_egb :=d .Token ();
-if _egb !=nil {return _g .Errorf ("\u0070\u0061\u0072\u0073in\u0067\u0020\u0052\u0046\u0043\u0033\u0030\u0036\u0036\u003a\u0020\u0025\u0073",_egb );};if _cbfd ,_fg :=_adfe .(_b .EndElement );_fg &&_cbfd .Name ==start .Name {break ;};};return nil ;};type Period struct{};
-
-
-// Validate validates the RFC1766 and its children
-func (_dcc *RFC1766 )Validate ()error {return _dcc .ValidateWithPath ("\u0052F\u0043\u0031\u0037\u0036\u0036");};
-
-// ValidateWithPath validates the Box and its children, prefixing error messages with path
-func (_ecc *Box )ValidateWithPath (path string )error {return nil };
-
-// ValidateWithPath validates the Point and its children, prefixing error messages with path
-func (_fec *Point )ValidateWithPath (path string )error {return nil };func (_eg *LCC )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u004c\u0043\u0043";e .EncodeToken (start );e .EncodeToken (_b .EndElement {Name :start .Name });
-return nil ;};func NewLCC ()*LCC {_cad :=&LCC {};return _cad };type LCC struct{};
-
-// ValidateWithPath validates the UDC and its children, prefixing error messages with path
-func (_fbb *UDC )ValidateWithPath (path string )error {return nil };
-
-// Validate validates the W3CDTF and its children
-func (_eca *W3CDTF )Validate ()error {return _eca .ValidateWithPath ("\u0057\u0033\u0043\u0044\u0054\u0046");};func (_bde *Period )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u0050\u0065\u0072\u0069\u006f\u0064";e .EncodeToken (start );
-e .EncodeToken (_b .EndElement {Name :start .Name });return nil ;};type ElementsAndRefinementsGroup struct{Any *_c .Any ;};func (_dd *MESH )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_adg ,_cgc :=d .Token ();if _cgc !=nil {return _g .Errorf ("\u0070\u0061r\u0073\u0069\u006eg\u0020\u004d\u0045\u0053\u0048\u003a\u0020\u0025\u0073",_cgc );
-};if _cfc ,_dcf :=_adg .(_b .EndElement );_dcf &&_cfc .Name ==start .Name {break ;};};return nil ;};func (_db *DDC )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u0044\u0044\u0043";e .EncodeToken (start );e .EncodeToken (_b .EndElement {Name :start .Name });
-return nil ;};
-
-// ValidateWithPath validates the URI and its children, prefixing error messages with path
-func (_ecg *URI )ValidateWithPath (path string )error {return nil };func (_af *DDC )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_dg ,_bf :=d .Token ();if _bf !=nil {return _g .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u0044\u0044\u0043\u003a\u0020\u0025\u0073",_bf );
-};if _ee ,_ag :=_dg .(_b .EndElement );_ag &&_ee .Name ==start .Name {break ;};};return nil ;};func (_bb *Box )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u0042\u006f\u0078";e .EncodeToken (start );e .EncodeToken (_b .EndElement {Name :start .Name });
-return nil ;};func (_efc *ElementOrRefinementContainer )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u0065\u006c\u0065\u006de\u006e\u0074\u004f\u0072\u0052\u0065\u0066\u0069\u006e\u0065m\u0065n\u0074\u0043\u006f\u006e\u0074\u0061\u0069n\u0065\u0072";
-e .EncodeToken (start );if _efc .Any !=nil {_cd :=_b .StartElement {Name :_b .Name {Local :"\u0064\u0063\u003a\u0061\u006e\u0079"}};e .EncodeElement (_efc .Any ,_cd );};e .EncodeToken (_b .EndElement {Name :start .Name });return nil ;};
-
-// ValidateWithPath validates the Period and its children, prefixing error messages with path
-func (_eeac *Period )ValidateWithPath (path string )error {return nil };
-
-// Validate validates the Point and its children
-func (_fb *Point )Validate ()error {return _fb .ValidateWithPath ("\u0050\u006f\u0069n\u0074")};
-
-// Validate validates the DDC and its children
-func (_bba *DDC )Validate ()error {return _bba .ValidateWithPath ("\u0044\u0044\u0043")};func NewDCMIType ()*DCMIType {_ca :=&DCMIType {};return _ca };func (_faf *ElementsAndRefinementsGroup )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {if _faf .Any !=nil {_dfa :=_b .StartElement {Name :_b .Name {Local :"\u0064\u0063\u003a\u0061\u006e\u0079"}};
-e .EncodeElement (_faf .Any ,_dfa );};return nil ;};func (_aga *ISO639_2 )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_geg ,_baa :=d .Token ();if _baa !=nil {return _g .Errorf ("p\u0061r\u0073\u0069\u006e\u0067\u0020\u0049\u0053\u004f6\u0033\u0039\u005f\u0032: \u0025\u0073",_baa );
-};if _cac ,_dgg :=_geg .(_b .EndElement );_dgg &&_cac .Name ==start .Name {break ;};};return nil ;};
-
-// Validate validates the UDC and its children
-func (_ggbc *UDC )Validate ()error {return _ggbc .ValidateWithPath ("\u0055\u0044\u0043")};
-
-// ValidateWithPath validates the LCC and its children, prefixing error messages with path
-func (_beg *LCC )ValidateWithPath (path string )error {return nil };func NewTGN ()*TGN {_bdfb :=&TGN {};return _bdfb };func NewPeriod ()*Period {_abf :=&Period {};return _abf };func (_eaaf *Period )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_ddd ,_dce :=d .Token ();
-if _dce !=nil {return _g .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u0050e\u0072\u0069o\u0064\u003a\u0020\u0025\u0073",_dce );};if _agb ,_dae :=_ddd .(_b .EndElement );_dae &&_agb .Name ==start .Name {break ;};};return nil ;};
 
 // Validate validates the ElementsAndRefinementsGroup and its children
-func (_bdf *ElementsAndRefinementsGroup )Validate ()error {return _bdf .ValidateWithPath ("E\u006c\u0065\u006d\u0065\u006e\u0074s\u0041\u006e\u0064\u0052\u0065\u0066\u0069\u006e\u0065m\u0065\u006e\u0074s\u0047r\u006f\u0075\u0070");};
+func (_ff *ElementsAndRefinementsGroup )Validate ()error {return _ff .ValidateWithPath ("E\u006c\u0065\u006d\u0065\u006e\u0074s\u0041\u006e\u0064\u0052\u0065\u0066\u0069\u006e\u0065m\u0065\u006e\u0074s\u0047r\u006f\u0075\u0070");};func NewLCSH ()*LCSH {_fge :=&LCSH {};
+return _fge };type Box struct{};type ISO3166 struct{};
 
-// ValidateWithPath validates the ElementsAndRefinementsGroup and its children, prefixing error messages with path
-func (_fafb *ElementsAndRefinementsGroup )ValidateWithPath (path string )error {if _fafb .Any !=nil {if _afe :=_fafb .Any .ValidateWithPath (path +"\u002f\u0041\u006e\u0079");_afe !=nil {return _afe ;};};return nil ;};func NewBox ()*Box {_ae :=&Box {};
-return _ae };func (_bcb *W3CDTF )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_ddc ,_bfg :=d .Token ();if _bfg !=nil {return _g .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u00573\u0043\u0044T\u0046\u003a\u0020\u0025\u0073",_bfg );
-};if _gdg ,_cca :=_ddc .(_b .EndElement );_cca &&_gdg .Name ==start .Name {break ;};};return nil ;};func (_aeg *DCMIType )UnmarshalXML (d *_b .Decoder ,start _b .StartElement )error {for {_ge ,_ba :=d .Token ();if _ba !=nil {return _g .Errorf ("p\u0061r\u0073\u0069\u006e\u0067\u0020\u0044\u0043\u004dI\u0054\u0079\u0070\u0065: \u0025\u0073",_ba );
-};if _gb ,_da :=_ge .(_b .EndElement );_da &&_gb .Name ==start .Name {break ;};};return nil ;};type IMT struct{};type LCSH struct{};
+// Validate validates the URI and its children
+func (_ccca *URI )Validate ()error {return _ccca .ValidateWithPath ("\u0055\u0052\u0049")};
 
-// ValidateWithPath validates the ElementOrRefinementContainer and its children, prefixing error messages with path
-func (_aeab *ElementOrRefinementContainer )ValidateWithPath (path string )error {if _aeab .Any !=nil {if _efcb :=_aeab .Any .ValidateWithPath (path +"\u002f\u0041\u006e\u0079");_efcb !=nil {return _efcb ;};};return nil ;};
+// Validate validates the IMT and its children
+func (_fdf *IMT )Validate ()error {return _fdf .ValidateWithPath ("\u0049\u004d\u0054")};func NewElementOrRefinementContainer ()*ElementOrRefinementContainer {_afg :=&ElementOrRefinementContainer {};return _afg ;};func (_aacc *Period )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_fdd ,_ebc :=d .Token ();
+if _ebc !=nil {return _ed .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u0050e\u0072\u0069o\u0064\u003a\u0020\u0025\u0073",_ebc );};if _agc ,_gff :=_fdd .(_e .EndElement );_gff &&_agc .Name ==start .Name {break ;};};return nil ;};func (_bac *ISO639_2 )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_agd ,_aag :=d .Token ();
+if _aag !=nil {return _ed .Errorf ("p\u0061r\u0073\u0069\u006e\u0067\u0020\u0049\u0053\u004f6\u0033\u0039\u005f\u0032: \u0025\u0073",_aag );};if _fe ,_ccc :=_agd .(_e .EndElement );_ccc &&_fe .Name ==start .Name {break ;};};return nil ;};func (_bd *Box )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_gg ,_gb :=d .Token ();
+if _gb !=nil {return _ed .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u0042\u006f\u0078\u003a\u0020\u0025\u0073",_gb );};if _f ,_fd :=_gg .(_e .EndElement );_fd &&_f .Name ==start .Name {break ;};};return nil ;};func NewPeriod ()*Period {_fff :=&Period {};
+return _fff };type URI struct{};
+
+// ValidateWithPath validates the RFC3066 and its children, prefixing error messages with path
+func (_gce *RFC3066 )ValidateWithPath (path string )error {return nil };func (_egd *TGN )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_dab ,_dgda :=d .Token ();if _dgda !=nil {return _ed .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u0054\u0047\u004e\u003a\u0020\u0025\u0073",_dgda );
+};if _bee ,_ade :=_dab .(_e .EndElement );_ade &&_bee .Name ==start .Name {break ;};};return nil ;};func NewUDC ()*UDC {_befa :=&UDC {};return _befa };
+
+// ValidateWithPath validates the Box and its children, prefixing error messages with path
+func (_d *Box )ValidateWithPath (path string )error {return nil };
+
+// Validate validates the TGN and its children
+func (_bgd *TGN )Validate ()error {return _bgd .ValidateWithPath ("\u0054\u0047\u004e")};func (_bf *ISO639_2 )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u0049\u0053\u004f\u0036\u0033\u0039\u002d\u0032";e .EncodeToken (start );
+e .EncodeToken (_e .EndElement {Name :start .Name });return nil ;};func NewMESH ()*MESH {_abc :=&MESH {};return _abc };func NewISO639_2 ()*ISO639_2 {_bc :=&ISO639_2 {};return _bc };
+
+// ValidateWithPath validates the MESH and its children, prefixing error messages with path
+func (_da *MESH )ValidateWithPath (path string )error {return nil };type ElementsAndRefinementsGroup struct{Any *_gc .Any ;};func (_efe *ISO3166 )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u0049S\u004f\u0033\u0031\u0036\u0036";
+e .EncodeToken (start );e .EncodeToken (_e .EndElement {Name :start .Name });return nil ;};func NewRFC3066 ()*RFC3066 {_cdf :=&RFC3066 {};return _cdf };
+
+// ValidateWithPath validates the LCC and its children, prefixing error messages with path
+func (_cccg *LCC )ValidateWithPath (path string )error {return nil };
+
+// ValidateWithPath validates the Point and its children, prefixing error messages with path
+func (_fcb *Point )ValidateWithPath (path string )error {return nil };
+
+// ValidateWithPath validates the DCMIType and its children, prefixing error messages with path
+func (_ga *DCMIType )ValidateWithPath (path string )error {return nil };func (_fa *ElementOrRefinementContainer )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {_bg :for {_efg ,_cb :=d .Token ();if _cb !=nil {return _cb ;};switch _ba :=_efg .(type ){case _e .StartElement :switch _ba .Name {case _e .Name {Space :"\u0068\u0074\u0074\u0070\u003a\u002f\u002f\u0070\u0075\u0072\u006c\u002e\u006f\u0072\u0067/\u0064c\u002f\u0065\u006c\u0065\u006d\u0065\u006e\u0074\u0073\u002f\u0031\u002e\u0031\u002f",Local :"\u0061\u006e\u0079"}:_fa .Any =_gc .NewAny ();
+if _ab :=d .DecodeElement (_fa .Any ,&_ba );_ab !=nil {return _ab ;};default:_a .Log .Debug ("\u0073k\u0069\u0070\u0070\u0069\u006e\u0067\u0020un\u0073\u0075\u0070\u0070\u006f\u0072\u0074\u0065\u0064\u0020\u0065\u006c\u0065\u006de\u006e\u0074 \u006f\u006e\u0020E\u006c\u0065\u006d\u0065\u006e\u0074\u004f\u0072\u0052\u0065\u0066\u0069\u006e\u0065\u006d\u0065n\u0074\u0043on\u0074\u0061\u0069n\u0065\u0072\u0020\u0025\u0076",_ba .Name );
+if _dce :=d .Skip ();_dce !=nil {return _dce ;};};case _e .EndElement :break _bg ;case _e .CharData :};};return nil ;};type ElementOrRefinementContainer struct{Any *_gc .Any ;};
+
+// ValidateWithPath validates the W3CDTF and its children, prefixing error messages with path
+func (_gabc *W3CDTF )ValidateWithPath (path string )error {return nil };func (_ggf *IMT )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_bgb ,_adgd :=d .Token ();if _adgd !=nil {return _ed .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u0049\u004d\u0054\u003a\u0020\u0025\u0073",_adgd );
+};if _aac ,_bde :=_bgb .(_e .EndElement );_bde &&_aac .Name ==start .Name {break ;};};return nil ;};func (_aba *MESH )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_dgd ,_cbc :=d .Token ();if _cbc !=nil {return _ed .Errorf ("\u0070\u0061r\u0073\u0069\u006eg\u0020\u004d\u0045\u0053\u0048\u003a\u0020\u0025\u0073",_cbc );
+};if _cd ,_cad :=_dgd .(_e .EndElement );_cad &&_cd .Name ==start .Name {break ;};};return nil ;};func (_dg *DCMIType )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u0044\u0043\u004d\u0049\u0054\u0079\u0070\u0065";e .EncodeToken (start );
+e .EncodeToken (_e .EndElement {Name :start .Name });return nil ;};
+
+// Validate validates the DDC and its children
+func (_bef *DDC )Validate ()error {return _bef .ValidateWithPath ("\u0044\u0044\u0043")};func (_dbge *ISO3166 )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_dfd ,_dgg :=d .Token ();if _dgg !=nil {return _ed .Errorf ("\u0070\u0061\u0072\u0073in\u0067\u0020\u0049\u0053\u004f\u0033\u0031\u0036\u0036\u003a\u0020\u0025\u0073",_dgg );
+};if _beg ,_ada :=_dfd .(_e .EndElement );_ada &&_beg .Name ==start .Name {break ;};};return nil ;};type DCMIType struct{};
+
+// Validate validates the Point and its children
+func (_cff *Point )Validate ()error {return _cff .ValidateWithPath ("\u0050\u006f\u0069n\u0074")};func (_cgcc *UDC )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u0055\u0044\u0043";e .EncodeToken (start );e .EncodeToken (_e .EndElement {Name :start .Name });
+return nil ;};func (_deb *RFC3066 )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u0052F\u0043\u0033\u0030\u0036\u0036";e .EncodeToken (start );e .EncodeToken (_e .EndElement {Name :start .Name });return nil ;};
+
+// ValidateWithPath validates the Period and its children, prefixing error messages with path
+func (_agb *Period )ValidateWithPath (path string )error {return nil };
+
+// Validate validates the LCSH and its children
+func (_egf *LCSH )Validate ()error {return _egf .ValidateWithPath ("\u004c\u0043\u0053\u0048")};
 
 // Validate validates the DCMIType and its children
-func (_ef *DCMIType )Validate ()error {return _ef .ValidateWithPath ("\u0044\u0043\u004d\u0049\u0054\u0079\u0070\u0065");};func (_gd *ISO3166 )MarshalXML (e *_b .Encoder ,start _b .StartElement )error {start .Name .Local ="\u0049S\u004f\u0033\u0031\u0036\u0036";
-e .EncodeToken (start );e .EncodeToken (_b .EndElement {Name :start .Name });return nil ;};func init (){_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u004c\u0043\u0053\u0048",NewLCSH );
-_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u004d\u0045\u0053\u0048",NewMESH );_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0044\u0044\u0043",NewDDC );
-_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u004c\u0043\u0043",NewLCC );_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0055\u0044\u0043",NewUDC );
-_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0050\u0065\u0072\u0069\u006f\u0064",NewPeriod );_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0057\u0033\u0043\u0044\u0054\u0046",NewW3CDTF );
-_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0044\u0043\u004d\u0049\u0054\u0079\u0070\u0065",NewDCMIType );_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0049\u004d\u0054",NewIMT );
-_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0055\u0052\u0049",NewURI );_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0049\u0053\u004f\u0036\u0033\u0039\u002d\u0032",NewISO639_2 );
-_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0052F\u0043\u0031\u0037\u0036\u0036",NewRFC1766 );_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0052F\u0043\u0033\u0030\u0036\u0036",NewRFC3066 );
-_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0050\u006f\u0069n\u0074",NewPoint );_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0049S\u004f\u0033\u0031\u0036\u0036",NewISO3166 );
-_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0042\u006f\u0078",NewBox );_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0054\u0047\u004e",NewTGN );
-_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0065\u006c\u0065\u006de\u006e\u0074\u004f\u0072\u0052\u0065\u0066\u0069\u006e\u0065m\u0065n\u0074\u0043\u006f\u006e\u0074\u0061\u0069n\u0065\u0072",NewElementOrRefinementContainer );
-_bd .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","e\u006c\u0065\u006d\u0065\u006e\u0074s\u0041\u006e\u0064\u0052\u0065\u0066\u0069\u006e\u0065m\u0065\u006e\u0074s\u0047r\u006f\u0075\u0070",NewElementsAndRefinementsGroup );
+func (_be *DCMIType )Validate ()error {return _be .ValidateWithPath ("\u0044\u0043\u004d\u0049\u0054\u0079\u0070\u0065");};
+
+// Validate validates the RFC1766 and its children
+func (_egc *RFC1766 )Validate ()error {return _egc .ValidateWithPath ("\u0052F\u0043\u0031\u0037\u0036\u0036");};func NewPoint ()*Point {_bgbc :=&Point {};return _bgbc };type RFC1766 struct{};func (_bae *LCC )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_cfg ,_fdc :=d .Token ();
+if _fdc !=nil {return _ed .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u004c\u0043\u0043\u003a\u0020\u0025\u0073",_fdc );};if _fg ,_bed :=_cfg .(_e .EndElement );_bed &&_fg .Name ==start .Name {break ;};};return nil ;};func NewRFC1766 ()*RFC1766 {_gab :=&RFC1766 {};
+return _gab };func NewLCC ()*LCC {_adag :=&LCC {};return _adag };
+
+// Validate validates the Period and its children
+func (_abf *Period )Validate ()error {return _abf .ValidateWithPath ("\u0050\u0065\u0072\u0069\u006f\u0064");};
+
+// Validate validates the MESH and its children
+func (_ae *MESH )Validate ()error {return _ae .ValidateWithPath ("\u004d\u0045\u0053\u0048")};
+
+// Validate validates the ElementOrRefinementContainer and its children
+func (_aa *ElementOrRefinementContainer )Validate ()error {return _aa .ValidateWithPath ("\u0045\u006c\u0065\u006de\u006e\u0074\u004f\u0072\u0052\u0065\u0066\u0069\u006e\u0065m\u0065n\u0074\u0043\u006f\u006e\u0074\u0061\u0069n\u0065\u0072");};
+
+// ValidateWithPath validates the ISO639_2 and its children, prefixing error messages with path
+func (_dec *ISO639_2 )ValidateWithPath (path string )error {return nil };func (_ef *DCMIType )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_bdg ,_bbf :=d .Token ();if _bbf !=nil {return _ed .Errorf ("p\u0061r\u0073\u0069\u006e\u0067\u0020\u0044\u0043\u004dI\u0054\u0079\u0070\u0065: \u0025\u0073",_bbf );
+};if _ea ,_c :=_bdg .(_e .EndElement );_c &&_ea .Name ==start .Name {break ;};};return nil ;};
+
+// ValidateWithPath validates the ElementOrRefinementContainer and its children, prefixing error messages with path
+func (_ca *ElementOrRefinementContainer )ValidateWithPath (path string )error {if _ca .Any !=nil {if _ac :=_ca .Any .ValidateWithPath (path +"\u002f\u0041\u006e\u0079");_ac !=nil {return _ac ;};};return nil ;};func NewIMT ()*IMT {_cf :=&IMT {};return _cf };
+func NewDDC ()*DDC {_eb :=&DDC {};return _eb };func (_ddd *RFC1766 )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_dge ,_egb :=d .Token ();if _egb !=nil {return _ed .Errorf ("\u0070\u0061\u0072\u0073in\u0067\u0020\u0052\u0046\u0043\u0031\u0037\u0036\u0036\u003a\u0020\u0025\u0073",_egb );
+};if _ege ,_caf :=_dge .(_e .EndElement );_caf &&_ege .Name ==start .Name {break ;};};return nil ;};
+
+// ValidateWithPath validates the UDC and its children, prefixing error messages with path
+func (_afa *UDC )ValidateWithPath (path string )error {return nil };func (_agdc *Point )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_cbd ,_ce :=d .Token ();if _ce !=nil {return _ed .Errorf ("\u0070\u0061\u0072\u0073\u0069\u006e\u0067\u0020\u0050\u006f\u0069\u006et\u003a\u0020\u0025\u0073",_ce );
+};if _dad ,_ggb :=_cbd .(_e .EndElement );_ggb &&_dad .Name ==start .Name {break ;};};return nil ;};type LCSH struct{};
+
+// ValidateWithPath validates the DDC and its children, prefixing error messages with path
+func (_af *DDC )ValidateWithPath (path string )error {return nil };func (_dba *LCSH )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u004c\u0043\u0053\u0048";e .EncodeToken (start );e .EncodeToken (_e .EndElement {Name :start .Name });
+return nil ;};type TGN struct{};
+
+// Validate validates the Box and its children
+func (_gcd *Box )Validate ()error {return _gcd .ValidateWithPath ("\u0042\u006f\u0078")};type W3CDTF struct{};
+
+// ValidateWithPath validates the RFC1766 and its children, prefixing error messages with path
+func (_gd *RFC1766 )ValidateWithPath (path string )error {return nil };func (_eff *RFC3066 )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_fed ,_egeb :=d .Token ();if _egeb !=nil {return _ed .Errorf ("\u0070\u0061\u0072\u0073in\u0067\u0020\u0052\u0046\u0043\u0033\u0030\u0036\u0036\u003a\u0020\u0025\u0073",_egeb );
+};if _cee ,_efc :=_fed .(_e .EndElement );_efc &&_cee .Name ==start .Name {break ;};};return nil ;};func (_begd *UDC )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_bba ,_geg :=d .Token ();if _geg !=nil {return _ed .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u0055\u0044\u0043\u003a\u0020\u0025\u0073",_geg );
+};if _cafa ,_eaa :=_bba .(_e .EndElement );_eaa &&_cafa .Name ==start .Name {break ;};};return nil ;};type IMT struct{};func NewTGN ()*TGN {_agf :=&TGN {};return _agf };
+
+// ValidateWithPath validates the LCSH and its children, prefixing error messages with path
+func (_ge *LCSH )ValidateWithPath (path string )error {return nil };
+
+// Validate validates the RFC3066 and its children
+func (_cgc *RFC3066 )Validate ()error {return _cgc .ValidateWithPath ("\u0052F\u0043\u0033\u0030\u0036\u0036");};type LCC struct{};
+
+// ValidateWithPath validates the ElementsAndRefinementsGroup and its children, prefixing error messages with path
+func (_ffg *ElementsAndRefinementsGroup )ValidateWithPath (path string )error {if _ffg .Any !=nil {if _dfc :=_ffg .Any .ValidateWithPath (path +"\u002f\u0041\u006e\u0079");_dfc !=nil {return _dfc ;};};return nil ;};
+
+// Validate validates the UDC and its children
+func (_gbad *UDC )Validate ()error {return _gbad .ValidateWithPath ("\u0055\u0044\u0043")};func (_bdge *IMT )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u0049\u004d\u0054";e .EncodeToken (start );e .EncodeToken (_e .EndElement {Name :start .Name });
+return nil ;};func (_begc *Point )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u0050\u006f\u0069n\u0074";e .EncodeToken (start );e .EncodeToken (_e .EndElement {Name :start .Name });return nil ;};type Period struct{};
+
+
+// Validate validates the W3CDTF and its children
+func (_ebca *W3CDTF )Validate ()error {return _ebca .ValidateWithPath ("\u0057\u0033\u0043\u0044\u0054\u0046");};func (_ebb *LCSH )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_aga ,_dfb :=d .Token ();if _dfb !=nil {return _ed .Errorf ("\u0070\u0061r\u0073\u0069\u006eg\u0020\u004c\u0043\u0053\u0048\u003a\u0020\u0025\u0073",_dfb );
+};if _fec ,_bad :=_aga .(_e .EndElement );_bad &&_fec .Name ==start .Name {break ;};};return nil ;};type MESH struct{};func (_bfc *W3CDTF )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_abe ,_fbb :=d .Token ();if _fbb !=nil {return _ed .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u00573\u0043\u0044T\u0046\u003a\u0020\u0025\u0073",_fbb );
+};if _dda ,_gaf :=_abe .(_e .EndElement );_gaf &&_dda .Name ==start .Name {break ;};};return nil ;};func (_gdd *TGN )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u0054\u0047\u004e";e .EncodeToken (start );e .EncodeToken (_e .EndElement {Name :start .Name });
+return nil ;};func (_dc *DDC )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_cg ,_gbc :=d .Token ();if _gbc !=nil {return _ed .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u0044\u0044\u0043\u003a\u0020\u0025\u0073",_gbc );};if _df ,_db :=_cg .(_e .EndElement );
+_db &&_df .Name ==start .Name {break ;};};return nil ;};func (_aef *RFC1766 )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u0052F\u0043\u0031\u0037\u0036\u0036";e .EncodeToken (start );e .EncodeToken (_e .EndElement {Name :start .Name });
+return nil ;};func (_gbf *W3CDTF )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u0057\u0033\u0043\u0044\u0054\u0046";e .EncodeToken (start );e .EncodeToken (_e .EndElement {Name :start .Name });return nil ;};
+
+// ValidateWithPath validates the IMT and its children, prefixing error messages with path
+func (_afe *IMT )ValidateWithPath (path string )error {return nil };func (_gba *ElementsAndRefinementsGroup )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {if _gba .Any !=nil {_adg :=_e .StartElement {Name :_e .Name {Local :"\u0064\u0063\u003a\u0061\u006e\u0079"}};
+e .EncodeElement (_gba .Any ,_adg );};return nil ;};type UDC struct{};func NewISO3166 ()*ISO3166 {_dbg :=&ISO3166 {};return _dbg };
+
+// ValidateWithPath validates the TGN and its children, prefixing error messages with path
+func (_efcb *TGN )ValidateWithPath (path string )error {return nil };func NewElementsAndRefinementsGroup ()*ElementsAndRefinementsGroup {_gf :=&ElementsAndRefinementsGroup {};return _gf ;};func (_fb *DDC )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u0044\u0044\u0043";
+e .EncodeToken (start );e .EncodeToken (_e .EndElement {Name :start .Name });return nil ;};
+
+// ValidateWithPath validates the ISO3166 and its children, prefixing error messages with path
+func (_dd *ISO3166 )ValidateWithPath (path string )error {return nil };func (_afd *URI )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u0055\u0052\u0049";e .EncodeToken (start );e .EncodeToken (_e .EndElement {Name :start .Name });
+return nil ;};func (_efa *URI )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {for {_cge ,_dga :=d .Token ();if _dga !=nil {return _ed .Errorf ("\u0070a\u0072s\u0069\u006e\u0067\u0020\u0055\u0052\u0049\u003a\u0020\u0025\u0073",_dga );};if _cef ,_ceef :=_cge .(_e .EndElement );
+_ceef &&_cef .Name ==start .Name {break ;};};return nil ;};func (_dcb *LCC )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u004c\u0043\u0043";e .EncodeToken (start );e .EncodeToken (_e .EndElement {Name :start .Name });
+return nil ;};func (_bb *Box )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u0042\u006f\u0078";e .EncodeToken (start );e .EncodeToken (_e .EndElement {Name :start .Name });return nil ;};func (_ee *MESH )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u004d\u0045\u0053\u0048";
+e .EncodeToken (start );e .EncodeToken (_e .EndElement {Name :start .Name });return nil ;};type RFC3066 struct{};func (_edd *Period )MarshalXML (e *_e .Encoder ,start _e .StartElement )error {start .Name .Local ="\u0050\u0065\u0072\u0069\u006f\u0064";e .EncodeToken (start );
+e .EncodeToken (_e .EndElement {Name :start .Name });return nil ;};type Point struct{};func NewW3CDTF ()*W3CDTF {_fdg :=&W3CDTF {};return _fdg };
+
+// ValidateWithPath validates the URI and its children, prefixing error messages with path
+func (_fcf *URI )ValidateWithPath (path string )error {return nil };func NewBox ()*Box {_gcf :=&Box {};return _gcf };
+
+// Validate validates the ISO3166 and its children
+func (_cc *ISO3166 )Validate ()error {return _cc .ValidateWithPath ("\u0049S\u004f\u0033\u0031\u0036\u0036");};
+
+// Validate validates the LCC and its children
+func (_bbe *LCC )Validate ()error {return _bbe .ValidateWithPath ("\u004c\u0043\u0043")};type DDC struct{};
+
+// Validate validates the ISO639_2 and its children
+func (_ec *ISO639_2 )Validate ()error {return _ec .ValidateWithPath ("\u0049\u0053\u004f\u0036\u0033\u0039\u005f\u0032");};func NewDCMIType ()*DCMIType {_fc :=&DCMIType {};return _fc };func NewURI ()*URI {_cdb :=&URI {};return _cdb };func (_eg *ElementsAndRefinementsGroup )UnmarshalXML (d *_e .Decoder ,start _e .StartElement )error {_gfe :for {_bbc ,_gca :=d .Token ();
+if _gca !=nil {return _gca ;};switch _de :=_bbc .(type ){case _e .StartElement :switch _de .Name {case _e .Name {Space :"\u0068\u0074\u0074\u0070\u003a\u002f\u002f\u0070\u0075\u0072\u006c\u002e\u006f\u0072\u0067/\u0064c\u002f\u0065\u006c\u0065\u006d\u0065\u006e\u0074\u0073\u002f\u0031\u002e\u0031\u002f",Local :"\u0061\u006e\u0079"}:_eg .Any =_gc .NewAny ();
+if _ead :=d .DecodeElement (_eg .Any ,&_de );_ead !=nil {return _ead ;};default:_a .Log .Debug ("\u0073\u006b\u0069\u0070\u0070\u0069\u006e\u0067\u0020\u0075\u006e\u0073\u0075\u0070\u0070\u006f\u0072\u0074ed\u0020e\u006c\u0065\u006d\u0065\u006e\u0074\u0020\u006f\u006e\u0020\u0045\u006ce\u006d\u0065\u006e\u0074\u0073\u0041\u006e\u0064\u0052\u0065\u0066\u0069\u006e\u0065\u006d\u0065\u006et\u0073\u0047\u0072\u006f\u0075\u0070\u0020\u0025\u0076",_de .Name );
+if _bbcf :=d .Skip ();_bbcf !=nil {return _bbcf ;};};case _e .EndElement :break _gfe ;case _e .CharData :};};return nil ;};func init (){_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u004c\u0043\u0053\u0048",NewLCSH );
+_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u004d\u0045\u0053\u0048",NewMESH );_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0044\u0044\u0043",NewDDC );
+_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u004c\u0043\u0043",NewLCC );_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0055\u0044\u0043",NewUDC );
+_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0050\u0065\u0072\u0069\u006f\u0064",NewPeriod );_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0057\u0033\u0043\u0044\u0054\u0046",NewW3CDTF );
+_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0044\u0043\u004d\u0049\u0054\u0079\u0070\u0065",NewDCMIType );_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0049\u004d\u0054",NewIMT );
+_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0055\u0052\u0049",NewURI );_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0049\u0053\u004f\u0036\u0033\u0039\u002d\u0032",NewISO639_2 );
+_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0052F\u0043\u0031\u0037\u0036\u0036",NewRFC1766 );_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0052F\u0043\u0033\u0030\u0036\u0036",NewRFC3066 );
+_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0050\u006f\u0069n\u0074",NewPoint );_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0049S\u004f\u0033\u0031\u0036\u0036",NewISO3166 );
+_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0042\u006f\u0078",NewBox );_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0054\u0047\u004e",NewTGN );
+_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","\u0065\u006c\u0065\u006de\u006e\u0074\u004f\u0072\u0052\u0065\u0066\u0069\u006e\u0065m\u0065n\u0074\u0043\u006f\u006e\u0074\u0061\u0069n\u0065\u0072",NewElementOrRefinementContainer );
+_b .RegisterConstructor ("\u0068t\u0074\u0070\u003a\u002f/\u0070\u0075\u0072\u006c\u002eo\u0072g\u002fd\u0063\u002f\u0074\u0065\u0072\u006d\u0073/","e\u006c\u0065\u006d\u0065\u006e\u0074s\u0041\u006e\u0064\u0052\u0065\u0066\u0069\u006e\u0065m\u0065\u006e\u0074s\u0047r\u006f\u0075\u0070",NewElementsAndRefinementsGroup );
 };

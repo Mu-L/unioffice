@@ -11,22 +11,22 @@
 
 // Package diskstore implements tempStorage interface
 // by using disk as a storage
-package diskstore ;import (_f "github.com/unidoc/unioffice/v2/common/tempstorage";_c "io/ioutil";_a "os";_g "strings";);
-
-// Add is not applicable in the diskstore implementation
-func (_e diskStorage )Add (path string )error {return nil };
-
-// TempFile creates a new temp file by calling ioutil TempFile
-func (_da diskStorage )TempFile (dir ,pattern string )(_f .File ,error ){return _c .TempFile (dir ,pattern );};
-
-// RemoveAll removes all files in the directory
-func (_bc diskStorage )RemoveAll (dir string )error {if _g .HasPrefix (dir ,_a .TempDir ()){return _a .RemoveAll (dir );};return nil ;};type diskStorage struct{};
+package diskstore ;import (_a "github.com/unidoc/unioffice/v2/common/tempstorage";_e "io/ioutil";_ff "os";_b "strings";);
 
 // SetAsStorage sets temp storage as a disk storage
-func SetAsStorage (){_af :=diskStorage {};_f .SetAsStorage (&_af )};
+func SetAsStorage (){_eb :=diskStorage {};_a .SetAsStorage (&_eb )};
 
 // Open opens file from disk according to a path
-func (_d diskStorage )Open (path string )(_f .File ,error ){return _a .OpenFile (path ,_a .O_RDWR ,0644)};
+func (_ab diskStorage )Open (path string )(_a .File ,error ){return _ff .OpenFile (path ,_ff .O_RDWR ,0644);};type diskStorage struct{};
+
+// RemoveAll removes all files in the directory
+func (_bc diskStorage )RemoveAll (dir string )error {if _b .HasPrefix (dir ,_ff .TempDir ()){return _ff .RemoveAll (dir );};return nil ;};
 
 // TempFile creates a new temp directory by calling ioutil TempDir
-func (_ga diskStorage )TempDir (pattern string )(string ,error ){return _c .TempDir ("",pattern )};
+func (_ad diskStorage )TempDir (pattern string )(string ,error ){return _e .TempDir ("",pattern )};
+
+// Add is not applicable in the diskstore implementation
+func (_g diskStorage )Add (path string )error {return nil };
+
+// TempFile creates a new temp file by calling ioutil TempFile
+func (_fb diskStorage )TempFile (dir ,pattern string )(_a .File ,error ){return _e .TempFile (dir ,pattern );};
