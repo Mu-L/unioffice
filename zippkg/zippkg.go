@@ -9,79 +9,17 @@
 // Use of this source code is governed by the UniDoc End User License Agreement
 // terms that can be accessed at https://unidoc.io/eula/
 
-package zippkg ;import (_a "archive/zip";_e "bytes";_df "encoding/xml";_g "fmt";_dd "github.com/unidoc/unioffice/v2";_gf "github.com/unidoc/unioffice/v2/common/tempstorage";_c "github.com/unidoc/unioffice/v2/internal/sort";_fd "github.com/unidoc/unioffice/v2/schema/soo/pkg/relationships";
-_de "io";_ed "path";_fe "sort";_ef "strings";_f "time";);
-
-// Decode unmarshals the content of a *zip.File as XML to a given destination.
-func Decode (f *_a .File ,dest interface{})error {_be ,_eaa :=f .Open ();if _eaa !=nil {return _g .Errorf ("e\u0072r\u006f\u0072\u0020\u0072\u0065\u0061\u0064\u0069n\u0067\u0020\u0025\u0073: \u0025\u0073",f .Name ,_eaa );};defer _be .Close ();_cf :=_df .NewDecoder (_be );
-if _fda :=_cf .Decode (dest );_fda !=nil {return _g .Errorf ("e\u0072\u0072\u006f\u0072 d\u0065c\u006f\u0064\u0069\u006e\u0067 \u0025\u0073\u003a\u0020\u0025\u0073",f .Name ,_fda );};if _eea ,_dec :=dest .(*_fd .Relationships );_dec {for _gab ,_gdb :=range _eea .Relationship {switch _gdb .TypeAttr {case _dd .OfficeDocumentTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .OfficeDocumentType ;
-case _dd .StylesTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .StylesType ;case _dd .ThemeTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .ThemeType ;case _dd .ControlTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .ControlType ;case _dd .SettingsTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .SettingsType ;
-case _dd .ImageTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .ImageType ;case _dd .CommentsTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .CommentsType ;case _dd .ThumbnailTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .ThumbnailType ;
-case _dd .DrawingTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .DrawingType ;case _dd .ChartTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .ChartType ;case _dd .ExtendedPropertiesTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .ExtendedPropertiesType ;
-case _dd .CustomXMLTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .CustomXMLType ;case _dd .WorksheetTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .WorksheetType ;case _dd .SharedStringsTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .SharedStringsType ;
-case _dd .TableTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .TableType ;case _dd .HeaderTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .HeaderType ;case _dd .FooterTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .FooterType ;case _dd .NumberingTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .NumberingType ;
-case _dd .FontTableTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .FontTableType ;case _dd .WebSettingsTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .WebSettingsType ;case _dd .FootNotesTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .FootNotesType ;
-case _dd .EndNotesTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .EndNotesType ;case _dd .SlideTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .SlideType ;case _dd .VMLDrawingTypeStrict :_eea .Relationship [_gab ].TypeAttr =_dd .VMLDrawingType ;
-};};_fe .Slice (_eea .Relationship ,func (_ffd ,_gc int )bool {_bcc :=_eea .Relationship [_ffd ];_ccf :=_eea .Relationship [_gc ];return _c .NaturalCompare (_bcc .IdAttr ,_ccf .IdAttr );});};return nil ;};var _fae =[]byte {'\r','\n'};type Target struct{Path string ;
-Typ string ;Ifc interface{};Index uint32 ;};
-
-// AddTarget allows documents to register decode targets. Path is a path that
-// will be found in the zip file and ifc is an XML element that the file will be
-// unmarshaled to.  filePath is the absolute path to the target, ifc is the
-// object to decode into, sourceFileType is the type of file that the reference
-// was discovered in, and index is the index of the source file type.
-func (_daf *DecodeMap )AddTarget (filePath string ,ifc interface{},sourceFileType string ,idx uint32 )bool {if _daf ._ee ==nil {_daf ._ee =make (map[string ]Target );_daf ._ba =make (map[*_fd .Relationships ]string );_daf ._da =make (map[string ]struct{});
-_daf ._fc =make (map[string ]int );};if _ed .IsAbs (filePath ){filePath =_ef .TrimPrefix (filePath ,"\u002f");};_gb :=_ed .Clean (filePath );if _ ,_ag :=_daf ._da [_gb ];_ag {return false ;};_daf ._da [_gb ]=struct{}{};_daf ._ee [_gb ]=Target {Path :_gb ,Typ :sourceFileType ,Ifc :ifc ,Index :idx };
-return true ;};func (_ga *DecodeMap )IndexFor (path string )int {return _ga ._fc [path ]};const XMLHeader ="\u003c\u003f\u0078\u006d\u006c\u0020\u0076e\u0072\u0073\u0069o\u006e\u003d\u00221\u002e\u0030\"\u0020\u0065\u006e\u0063\u006f\u0064i\u006eg=\u0022\u0055\u0054\u0046\u002d\u0038\u0022\u0020\u0073\u0074\u0061\u006e\u0064\u0061\u006c\u006f\u006e\u0065\u003d\u0022\u0079\u0065\u0073\u0022\u003f\u003e"+"\u000a";
-
-
-// AddFileFromBytes takes a byte array and adds it at a given path to a zip file.
-func AddFileFromBytes (z *_a .Writer ,zipPath string ,data []byte )error {_bd ,_eeaa :=z .Create (zipPath );if _eeaa !=nil {return _g .Errorf ("e\u0072\u0072\u006f\u0072 c\u0072e\u0061\u0074\u0069\u006e\u0067 \u0025\u0073\u003a\u0020\u0025\u0073",zipPath ,_eeaa );
-};_ ,_eeaa =_de .Copy (_bd ,_e .NewReader (data ));return _eeaa ;};
-
-// DecodeMap is used to walk a tree of relationships, decoding files and passing
-// control back to the document.
-type DecodeMap struct{_ee map[string ]Target ;_ba map[*_fd .Relationships ]string ;_ce []Target ;_deb OnNewRelationshipFunc ;_da map[string ]struct{};_fc map[string ]int ;};
-
-// RelationsPathFor returns the relations path for a given filename.
-func RelationsPathFor (path string )string {_cdf :=_ef .Split (path ,"\u002f");_cdg :=_ef .Join (_cdf [0:len (_cdf )-1],"\u002f");_fcb :=_cdf [len (_cdf )-1];_cdg +="\u002f_\u0072\u0065\u006c\u0073\u002f";_fcb +="\u002e\u0072\u0065l\u0073";return _cdg +_fcb ;
-};
+package zippkg ;import (_g "archive/zip";_dg "bytes";_ce "encoding/xml";_de "fmt";_fb "github.com/unidoc/unioffice/v2";_e "github.com/unidoc/unioffice/v2/common/tempstorage";_dfc "github.com/unidoc/unioffice/v2/internal/sort";_dga "github.com/unidoc/unioffice/v2/schema/soo/pkg/relationships";
+_df "io";_ff "path";_f "sort";_b "strings";_d "time";);
 
 // SetOnNewRelationshipFunc sets the function to be called when a new
 // relationship has been discovered.
-func (_cd *DecodeMap )SetOnNewRelationshipFunc (fn OnNewRelationshipFunc ){_cd ._deb =fn };var _gg =[]byte {'/','>'};func MarshalXMLByTypeIndex (z *_a .Writer ,dt _dd .DocType ,typ string ,idx int ,v interface{})error {_afb :=_dd .AbsoluteFilename (dt ,typ ,idx );
-return MarshalXML (z ,_afb ,v );};
-
-// Decode loops decoding targets registered with AddTarget and calling th
-func (_cb *DecodeMap )Decode (files []*_a .File )error {_fb :=1;for _fb > 0{for len (_cb ._ce )> 0{_bb :=_cb ._ce [0];_cb ._ce =_cb ._ce [1:];_ab :=_bb .Ifc .(*_fd .Relationships );for _ ,_gae :=range _ab .Relationship {_cdc :=_cb ._ba [_ab ];_af :=_ef .TrimPrefix (_gae .TargetAttr ,"\u002f");
-if _ef .HasPrefix (_gae .TargetAttr ,"\u002f"){_ =_cb ._deb (_cb ,_af ,_gae .TypeAttr ,files ,_gae ,_bb );}else {if _ef .IndexByte (_cdc ,'/')> -1{_bc :=_cdc [:_ef .IndexByte (_cdc ,'/')+1];if _ef .HasPrefix (_af ,_bc ){_cdc ="";};};if _ef .HasPrefix (_af ,_cdc ){_cdc ="";
-};_ =_cb ._deb (_cb ,_cdc +_af ,_gae .TypeAttr ,files ,_gae ,_bb );};};};for _db ,_dfd :=range files {if _dfd ==nil {continue ;};if _eab ,_ddd :=_cb ._ee [_dfd .Name ];_ddd {delete (_cb ._ee ,_dfd .Name );if _dfc :=Decode (_dfd ,_eab .Ifc );_dfc !=nil {return _dfc ;
-};files [_db ]=nil ;if _fbg ,_cef :=_eab .Ifc .(*_fd .Relationships );_cef {_cb ._ce =append (_cb ._ce ,_eab );_cc ,_ :=_ed .Split (_ed .Clean (_dfd .Name +"\u002f\u002e\u002e\u002f"));_cb ._ba [_fbg ]=_cc ;_fb ++;};};};_fb --;};return nil ;};
+func (_ceg *DecodeMap )SetOnNewRelationshipFunc (fn OnNewRelationshipFunc ){_ceg ._dbc =fn };
 
 // SelfClosingWriter wraps a writer and replaces XML tags of the
 // type <foo></foo> with <foo/>
-type SelfClosingWriter struct{W _de .Writer ;};
-
-// MarshalXML creates a file inside of a zip and marshals an object as xml, prefixing it
-// with a standard XML header.
-func MarshalXML (z *_a .Writer ,filename string ,v interface{})error {_fcba :=&_a .FileHeader {};_fcba .Method =_a .Deflate ;_fcba .Name =filename ;_fcba .SetModTime (_f .Now ());_cfc ,_dfb :=z .CreateHeader (_fcba );if _dfb !=nil {return _g .Errorf ("\u0063\u0072\u0065\u0061ti\u006e\u0067\u0020\u0025\u0073\u0020\u0069\u006e\u0020\u007a\u0069\u0070\u003a\u0020%\u0073",filename ,_dfb );
-};_ ,_dfb =_cfc .Write ([]byte (XMLHeader ));if _dfb !=nil {return _g .Errorf ("\u0063\u0072e\u0061\u0074\u0069\u006e\u0067\u0020\u0078\u006d\u006c\u0020\u0068\u0065\u0061\u0064\u0065\u0072\u0020\u0074\u006f\u0020\u0025\u0073: \u0025\u0073",filename ,_dfb );
-};if _dfb =_df .NewEncoder (SelfClosingWriter {_cfc }).Encode (v );_dfb !=nil {return _g .Errorf ("\u006d\u0061\u0072\u0073\u0068\u0061\u006c\u0069\u006e\u0067\u0020\u0025s\u003a\u0020\u0025\u0073",filename ,_dfb );};_ ,_dfb =_cfc .Write (_fae );return _dfb ;
-};
-
-// AddFileFromStorage reads a file from internal storage and adds it at a given path to a zip file.
-// NOTE: If disk storage cannot be used, memory storage can be used instead by calling memstore.SetAsStorage().
-func AddFileFromStorage (z *_a .Writer ,zipPath ,storagePath string )error {_bag ,_dag :=z .Create (zipPath );if _dag !=nil {return _g .Errorf ("e\u0072\u0072\u006f\u0072 c\u0072e\u0061\u0074\u0069\u006e\u0067 \u0025\u0073\u003a\u0020\u0025\u0073",zipPath ,_dag );
-};_cg ,_dag :=_gf .Open (storagePath );if _dag !=nil {return _g .Errorf ("e\u0072r\u006f\u0072\u0020\u006f\u0070\u0065\u006e\u0069n\u0067\u0020\u0025\u0073: \u0025\u0073",storagePath ,_dag );};defer _cg .Close ();_ ,_dag =_de .Copy (_bag ,_cg );return _dag ;
-};func (_cac SelfClosingWriter )Write (b []byte )(int ,error ){_gdf :=0;_ffb :=0;for _cbg :=0;_cbg < len (b )-2;_cbg ++{if b [_cbg ]=='>'&&b [_cbg +1]=='<'&&b [_cbg +2]=='/'{_cee :=[]byte {};_gfg :=_cbg ;for _cca :=_cbg ;_cca >=0;_cca --{if b [_cca ]==' '{_gfg =_cca ;
-}else if b [_cca ]=='<'{_cee =b [_cca +1:_gfg ];break ;};};_ffbd :=[]byte {};for _gfc :=_cbg +3;_gfc < len (b );_gfc ++{if b [_gfc ]=='>'{_ffbd =b [_cbg +3:_gfc ];break ;};};if !_e .Equal (_cee ,_ffbd ){continue ;};_eegc ,_eda :=_cac .W .Write (b [_gdf :_cbg ]);
-if _eda !=nil {return _ffb +_eegc ,_eda ;};_ffb +=_eegc ;_ ,_eda =_cac .W .Write (_gg );if _eda !=nil {return _ffb ,_eda ;};_ffb +=3;for _fdb :=_cbg +2;_fdb < len (b )&&b [_fdb ]!='>';_fdb ++{_ffb ++;_gdf =_fdb +2;_cbg =_gdf ;};};};_dda ,_eae :=_cac .W .Write (b [_gdf :]);
-return _dda +_ffb ,_eae ;};
-
-// ExtractToDiskTmp extracts a zip file to a temporary file in a given path,
-// returning the name of the file.
-func ExtractToDiskTmp (f *_a .File ,path string )(string ,error ){_ca ,_fbd :=_gf .TempFile (path ,"\u007a\u007a");if _fbd !=nil {return "",_fbd ;};defer _ca .Close ();_fgaa ,_fbd :=f .Open ();if _fbd !=nil {return "",_fbd ;};defer _fgaa .Close ();_ ,_fbd =_de .Copy (_ca ,_fgaa );
-if _fbd !=nil {return "",_fbd ;};return _ca .Name (),nil ;};
+type SelfClosingWriter struct{W _df .Writer ;};type Target struct{Path string ;Typ string ;Ifc interface{};Index uint32 ;};func (_fe *DecodeMap )IndexFor (path string )int {return _fe ._gd [path ]};var _bgc =[]byte {'\r','\n'};func MarshalXMLByTypeIndex (z *_g .Writer ,dt _fb .DocType ,typ string ,idx int ,v interface{})error {_gdc :=_fb .AbsoluteFilename (dt ,typ ,idx );
+return MarshalXML (z ,_gdc ,v );};
 
 // OnNewRelationshipFunc is called when a new relationship has been discovered.
 //
@@ -95,5 +33,65 @@ if _fbd !=nil {return "",_fbd ;};return _ca .Name (),nil ;};
 // target doesn't match where unioffice will write the file (e.g. read in
 // 'xl/worksheets/MyWorksheet.xml' and we'll write out
 // 'xl/worksheets/sheet1.xml')
-type OnNewRelationshipFunc func (_b *DecodeMap ,_fa ,_ea string ,_ff []*_a .File ,_fg *_fd .Relationship ,_ge Target )error ;func (_eeg *DecodeMap )RecordIndex (path string ,idx int ){_eeg ._fc [path ]=idx };func MarshalXMLByType (z *_a .Writer ,dt _dd .DocType ,typ string ,v interface{})error {_bdd :=_dd .AbsoluteFilename (dt ,typ ,0);
-return MarshalXML (z ,_bdd ,v );};
+type OnNewRelationshipFunc func (_ga *DecodeMap ,_fc ,_db string ,_a []*_g .File ,_gac *_dga .Relationship ,_dfd Target )error ;
+
+// Decode loops decoding targets registered with AddTarget and calling th
+func (_bbd *DecodeMap )Decode (files []*_g .File )error {_bf :=1;for _bf > 0{for len (_bbd ._gg )> 0{_gb :=_bbd ._gg [0];_bbd ._gg =_bbd ._gg [1:];_cc :=_gb .Ifc .(*_dga .Relationships );for _ ,_bd :=range _cc .Relationship {_dba :=_bbd ._fg [_cc ];_dc :=_b .TrimPrefix (_bd .TargetAttr ,"\u002f");
+if _b .HasPrefix (_bd .TargetAttr ,"\u002f"){_ =_bbd ._dbc (_bbd ,_dc ,_bd .TypeAttr ,files ,_bd ,_gb );}else {if _b .IndexByte (_dba ,'/')> -1{_ccb :=_dba [:_b .IndexByte (_dba ,'/')+1];if _b .HasPrefix (_dc ,_ccb ){_dba ="";};};if _b .HasPrefix (_dc ,_dba ){_dba ="";
+};_ =_bbd ._dbc (_bbd ,_dba +_dc ,_bd .TypeAttr ,files ,_bd ,_gb );};};};for _aa ,_ec :=range files {if _ec ==nil {continue ;};if _dca ,_gge :=_bbd ._ee [_ec .Name ];_gge {delete (_bbd ._ee ,_ec .Name );if _def :=Decode (_ec ,_dca .Ifc );_def !=nil {return _def ;
+};files [_aa ]=nil ;if _gfd ,_da :=_dca .Ifc .(*_dga .Relationships );_da {_bbd ._gg =append (_bbd ._gg ,_dca );_dbb ,_ :=_ff .Split (_ff .Clean (_ec .Name +"\u002f\u002e\u002e\u002f"));_bbd ._fg [_gfd ]=_dbb ;_bf ++;};};};_bf --;};return nil ;};
+
+// AddFileFromBytes takes a byte array and adds it at a given path to a zip file.
+func AddFileFromBytes (z *_g .Writer ,zipPath string ,data []byte )error {_bga ,_cf :=z .Create (zipPath );if _cf !=nil {return _de .Errorf ("e\u0072\u0072\u006f\u0072 c\u0072e\u0061\u0074\u0069\u006e\u0067 \u0025\u0073\u003a\u0020\u0025\u0073",zipPath ,_cf );
+};_ ,_cf =_df .Copy (_bga ,_dg .NewReader (data ));return _cf ;};
+
+// Decode unmarshals the content of a *zip.File as XML to a given destination.
+func Decode (f *_g .File ,dest interface{})error {_cega ,_cb :=f .Open ();if _cb !=nil {return _de .Errorf ("e\u0072r\u006f\u0072\u0020\u0072\u0065\u0061\u0064\u0069n\u0067\u0020\u0025\u0073: \u0025\u0073",f .Name ,_cb );};defer _cega .Close ();_ccf :=_ce .NewDecoder (_cega );
+if _gbf :=_ccf .Decode (dest );_gbf !=nil {return _de .Errorf ("e\u0072\u0072\u006f\u0072 d\u0065c\u006f\u0064\u0069\u006e\u0067 \u0025\u0073\u003a\u0020\u0025\u0073",f .Name ,_gbf );};if _ecd ,_ac :=dest .(*_dga .Relationships );_ac {for _ffe ,_be :=range _ecd .Relationship {switch _be .TypeAttr {case _fb .OfficeDocumentTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .OfficeDocumentType ;
+case _fb .StylesTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .StylesType ;case _fb .ThemeTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .ThemeType ;case _fb .ControlTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .ControlType ;case _fb .SettingsTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .SettingsType ;
+case _fb .ImageTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .ImageType ;case _fb .CommentsTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .CommentsType ;case _fb .ThumbnailTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .ThumbnailType ;
+case _fb .DrawingTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .DrawingType ;case _fb .ChartTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .ChartType ;case _fb .ExtendedPropertiesTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .ExtendedPropertiesType ;
+case _fb .CustomXMLTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .CustomXMLType ;case _fb .WorksheetTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .WorksheetType ;case _fb .SharedStringsTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .SharedStringsType ;
+case _fb .TableTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .TableType ;case _fb .HeaderTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .HeaderType ;case _fb .FooterTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .FooterType ;case _fb .NumberingTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .NumberingType ;
+case _fb .FontTableTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .FontTableType ;case _fb .WebSettingsTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .WebSettingsType ;case _fb .FootNotesTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .FootNotesType ;
+case _fb .EndNotesTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .EndNotesType ;case _fb .SlideTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .SlideType ;case _fb .VMLDrawingTypeStrict :_ecd .Relationship [_ffe ].TypeAttr =_fb .VMLDrawingType ;
+};};_f .Slice (_ecd .Relationship ,func (_ae ,_bcd int )bool {_ab :=_ecd .Relationship [_ae ];_abf :=_ecd .Relationship [_bcd ];return _dfc .NaturalCompare (_ab .IdAttr ,_abf .IdAttr );});};return nil ;};const XMLHeader ="\u003c\u003f\u0078\u006d\u006c\u0020\u0076e\u0072\u0073\u0069o\u006e\u003d\u00221\u002e\u0030\"\u0020\u0065\u006e\u0063\u006f\u0064i\u006eg=\u0022\u0055\u0054\u0046\u002d\u0038\u0022\u0020\u0073\u0074\u0061\u006e\u0064\u0061\u006c\u006f\u006e\u0065\u003d\u0022\u0079\u0065\u0073\u0022\u003f\u003e"+"\u000a";
+func MarshalXMLByType (z *_g .Writer ,dt _fb .DocType ,typ string ,v interface{})error {_acd :=_fb .AbsoluteFilename (dt ,typ ,0);return MarshalXML (z ,_acd ,v );};func (_dad SelfClosingWriter )Write (b []byte )(int ,error ){_dd :=0;_eaa :=0;for _dgd :=0;
+_dgd < len (b )-2;_dgd ++{if b [_dgd ]=='>'&&b [_dgd +1]=='<'&&b [_dgd +2]=='/'{_ad :=[]byte {};_ffc :=_dgd ;for _cfb :=_dgd ;_cfb >=0;_cfb --{if b [_cfb ]==' '{_ffc =_cfb ;}else if b [_cfb ]=='<'{_ad =b [_cfb +1:_ffc ];break ;};};_bae :=[]byte {};for _ebg :=_dgd +3;
+_ebg < len (b );_ebg ++{if b [_ebg ]=='>'{_bae =b [_dgd +3:_ebg ];break ;};};if !_dg .Equal (_ad ,_bae ){continue ;};_fbgd ,_efd :=_dad .W .Write (b [_dd :_dgd ]);if _efd !=nil {return _eaa +_fbgd ,_efd ;};_eaa +=_fbgd ;_ ,_efd =_dad .W .Write (_dbf );
+if _efd !=nil {return _eaa ,_efd ;};_eaa +=3;for _dbe :=_dgd +2;_dbe < len (b )&&b [_dbe ]!='>';_dbe ++{_eaa ++;_dd =_dbe +2;_dgd =_dd ;};};};_ggc ,_ed :=_dad .W .Write (b [_dd :]);return _ggc +_eaa ,_ed ;};func (_fbg *DecodeMap )RecordIndex (path string ,idx int ){_fbg ._gd [path ]=idx };
+var _dbf =[]byte {'/','>'};
+
+// AddFileFromStorage reads a file from internal storage and adds it at a given path to a zip file.
+// NOTE: If disk storage cannot be used, memory storage can be used instead by calling memstore.SetAsStorage().
+func AddFileFromStorage (z *_g .Writer ,zipPath ,storagePath string )error {_dbg ,_dea :=z .Create (zipPath );if _dea !=nil {return _de .Errorf ("e\u0072\u0072\u006f\u0072 c\u0072e\u0061\u0074\u0069\u006e\u0067 \u0025\u0073\u003a\u0020\u0025\u0073",zipPath ,_dea );
+};_aeg ,_dea :=_e .Open (storagePath );if _dea !=nil {return _de .Errorf ("e\u0072r\u006f\u0072\u0020\u006f\u0070\u0065\u006e\u0069n\u0067\u0020\u0025\u0073: \u0025\u0073",storagePath ,_dea );};defer _aeg .Close ();_ ,_dea =_df .Copy (_dbg ,_aeg );return _dea ;
+};
+
+// RelationsPathFor returns the relations path for a given filename.
+func RelationsPathFor (path string )string {_bc :=_b .Split (path ,"\u002f");_ea :=_b .Join (_bc [0:len (_bc )-1],"\u002f");_ef :=_bc [len (_bc )-1];_ea +="\u002f_\u0072\u0065\u006c\u0073\u002f";_ef +="\u002e\u0072\u0065l\u0073";return _ea +_ef ;};
+
+// ExtractToDiskTmp extracts a zip file to a temporary file in a given path,
+// returning the name of the file.
+func ExtractToDiskTmp (f *_g .File ,path string )(string ,error ){_cee ,_eg :=_e .TempFile (path ,"\u007a\u007a");if _eg !=nil {return "",_eg ;};defer _cee .Close ();_bdf ,_eg :=f .Open ();if _eg !=nil {return "",_eg ;};defer _bdf .Close ();_ ,_eg =_df .Copy (_cee ,_bdf );
+if _eg !=nil {return "",_eg ;};return _cee .Name (),nil ;};
+
+// MarshalXML creates a file inside of a zip and marshals an object as xml, prefixing it
+// with a standard XML header.
+func MarshalXML (z *_g .Writer ,filename string ,v interface{})error {_gfa :=&_g .FileHeader {};_gfa .Method =_g .Deflate ;_gfa .Name =filename ;_gfa .SetModTime (_d .Now ());_fa ,_ag :=z .CreateHeader (_gfa );if _ag !=nil {return _de .Errorf ("\u0063\u0072\u0065\u0061ti\u006e\u0067\u0020\u0025\u0073\u0020\u0069\u006e\u0020\u007a\u0069\u0070\u003a\u0020%\u0073",filename ,_ag );
+};_ ,_ag =_fa .Write ([]byte (XMLHeader ));if _ag !=nil {return _de .Errorf ("\u0063\u0072e\u0061\u0074\u0069\u006e\u0067\u0020\u0078\u006d\u006c\u0020\u0068\u0065\u0061\u0064\u0065\u0072\u0020\u0074\u006f\u0020\u0025\u0073: \u0025\u0073",filename ,_ag );
+};if _ag =_ce .NewEncoder (SelfClosingWriter {_fa }).Encode (v );_ag !=nil {return _de .Errorf ("\u006d\u0061\u0072\u0073\u0068\u0061\u006c\u0069\u006e\u0067\u0020\u0025s\u003a\u0020\u0025\u0073",filename ,_ag );};_ ,_ag =_fa .Write (_bgc );return _ag ;
+};
+
+// AddTarget allows documents to register decode targets. Path is a path that
+// will be found in the zip file and ifc is an XML element that the file will be
+// unmarshaled to.  filePath is the absolute path to the target, ifc is the
+// object to decode into, sourceFileType is the type of file that the reference
+// was discovered in, and index is the index of the source file type.
+func (_bg *DecodeMap )AddTarget (filePath string ,ifc interface{},sourceFileType string ,idx uint32 )bool {if _bg ._ee ==nil {_bg ._ee =make (map[string ]Target );_bg ._fg =make (map[*_dga .Relationships ]string );_bg ._gf =make (map[string ]struct{});
+_bg ._gd =make (map[string ]int );};if _ff .IsAbs (filePath ){filePath =_b .TrimPrefix (filePath ,"\u002f");};_eb :=_ff .Clean (filePath );if _ ,_fce :=_bg ._gf [_eb ];_fce {return false ;};_bg ._gf [_eb ]=struct{}{};_bg ._ee [_eb ]=Target {Path :_eb ,Typ :sourceFileType ,Ifc :ifc ,Index :idx };
+return true ;};
+
+// DecodeMap is used to walk a tree of relationships, decoding files and passing
+// control back to the document.
+type DecodeMap struct{_ee map[string ]Target ;_fg map[*_dga .Relationships ]string ;_gg []Target ;_dbc OnNewRelationshipFunc ;_gf map[string ]struct{};_gd map[string ]int ;};
