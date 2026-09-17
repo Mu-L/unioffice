@@ -1,13 +1,13 @@
 module github.com/unidoc/unioffice/v2
 
-go 1.24.0
+go 1.25.0
 
 require (
 	github.com/richardlehane/msoleps v1.0.6
 	github.com/stretchr/testify v1.11.1
 	github.com/unidoc/emf v0.2.0
 	github.com/unidoc/unichart v0.5.2
-	github.com/unidoc/unipdf/v5 v5.0.0
+	github.com/unidoc/unipdf/v5 v5.1.0
 	github.com/unidoc/unitype v0.5.1
 	golang.org/x/image v0.36.0
 )

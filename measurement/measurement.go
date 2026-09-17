@@ -9,18 +9,25 @@
 // Use of this source code is governed by the UniDoc End User License Agreement
 // terms that can be accessed at https://unidoc.io/eula/
 
-package measurement ;
+package measurement ;import (_f "regexp";_e "strconv";);const (Zero Distance =0;Point =1;Pixel72 =1.0/72.0*Inch ;Pixel96 =1.0/96.0*Inch ;HalfPoint =1.0/2.0*Point ;Character =7*Point ;Millimeter =2.83465*Point ;Centimeter =10*Millimeter ;Inch =72*Point ;
+Foot =12*Inch ;Twips =1.0/20.0*Point ;EMU =1.0/914400.0*Inch ;HundredthPoint =1/100.0;Dxa =Twips ;);
+
+// FromEMU converts int64 EMU units to float64 distance units.
+func FromEMU (emu int64 )float64 {return float64 (emu )/914400*Inch };
 
 // Convert ST_Angle to degree.
-func DegreeFromSTAngle (stAngle int32 )float64 {return -float64 (stAngle )/_e };
+func DegreeFromSTAngle (stAngle int32 )float64 {return -float64 (stAngle )/_c };var _g =_f .MustCompile ("\u005e\u005c\u0073\u002a\u0028\u002d\u003f\u005b\u0030\u002d\u0039]\u002b\u0028\u003f\u003a\u005c\u002e\u005b\u0030-\u0039]\u002b\u0029\u003f\u0029\u005c\u0073\u002a\u0028\u006d\u006d\u007c\u0063\u006d\u007c\u0069\u006e\u007c\u0070t\u007c\u0070\u0063\u007c\u0070\u0069\u0029\u005c\u0073\u002a\u0024");
+const _c =60000;
 
 // Distance represents a distance and is automatically converted
 // to the units needed internally in the various ECMA 376 formats.
 type Distance float64 ;
 
-// FromEMU converts int64 EMU units to float64 distance units.
-func FromEMU (emu int64 )float64 {return float64 (emu )/914400*Inch };const (Zero Distance =0;Point =1;Pixel72 =1.0/72.0*Inch ;Pixel96 =1.0/96.0*Inch ;HalfPoint =1.0/2.0*Point ;Character =7*Point ;Millimeter =2.83465*Point ;Centimeter =10*Millimeter ;Inch =72*Point ;
-Foot =12*Inch ;Twips =1.0/20.0*Point ;EMU =1.0/914400.0*Inch ;HundredthPoint =1/100.0;Dxa =Twips ;);const _e =60000;
+// ParseUniversalMeasure converts an OOXML ST_UniversalMeasure string such as
+// "2.5pt", "0.5in" or "10mm" to a Distance. It reports false for anything
+// that is not a number followed by one of mm, cm, in, pt, pc or pi.
+func ParseUniversalMeasure (s string )(Distance ,bool ){_fc :=_g .FindStringSubmatch (s );if _fc ==nil {return 0,false ;};_ba ,_fd :=_e .ParseFloat (_fc [1],64);if _fd !=nil {return 0,false ;};switch _fc [2]{case "\u006d\u006d":return Distance (_ba )*Millimeter ,true ;
+case "\u0063\u006d":return Distance (_ba )*Centimeter ,true ;case "\u0069\u006e":return Distance (_ba )*Inch ,true ;case "\u0070\u0063","\u0070\u0069":return Distance (_ba )*12*Point ,true ;default:return Distance (_ba )*Point ,true ;};};
 
 // ToEMU converts float64 distance units to int64 EMU.
 func ToEMU (m float64 )int64 {return int64 (914400.0/Inch *m )};
