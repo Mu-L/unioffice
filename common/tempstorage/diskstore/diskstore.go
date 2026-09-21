@@ -11,22 +11,22 @@
 
 // Package diskstore implements tempStorage interface
 // by using disk as a storage
-package diskstore ;import (_eb "github.com/unidoc/unioffice/v2/common/tempstorage";_g "io/ioutil";_f "os";_d "strings";);
-
-// TempFile creates a new temp directory by calling ioutil TempDir
-func (_bb diskStorage )TempDir (pattern string )(string ,error ){return _g .TempDir ("",pattern )};
-
-// TempFile creates a new temp file by calling ioutil TempFile
-func (_be diskStorage )TempFile (dir ,pattern string )(_eb .File ,error ){return _g .TempFile (dir ,pattern );};
-
-// Add is not applicable in the diskstore implementation
-func (_de diskStorage )Add (path string )error {return nil };type diskStorage struct{};
+package diskstore ;import (_d "github.com/unidoc/unioffice/v2/common/tempstorage";_g "io/ioutil";_ga "os";_b "strings";);
 
 // SetAsStorage sets temp storage as a disk storage
-func SetAsStorage (){_b :=diskStorage {};_eb .SetAsStorage (&_b )};
+func SetAsStorage (){_db :=diskStorage {};_d .SetAsStorage (&_db )};
 
 // RemoveAll removes all files in the directory
-func (_daf diskStorage )RemoveAll (dir string )error {if _d .HasPrefix (dir ,_f .TempDir ()){return _f .RemoveAll (dir );};return nil ;};
+func (_gf diskStorage )RemoveAll (dir string )error {if _b .HasPrefix (dir ,_ga .TempDir ()){return _ga .RemoveAll (dir );};return nil ;};
+
+// TempFile creates a new temp file by calling ioutil TempFile
+func (_a diskStorage )TempFile (dir ,pattern string )(_d .File ,error ){return _g .TempFile (dir ,pattern );};
+
+// TempFile creates a new temp directory by calling ioutil TempDir
+func (_cf diskStorage )TempDir (pattern string )(string ,error ){return _g .TempDir ("",pattern )};
 
 // Open opens file from disk according to a path
-func (_da diskStorage )Open (path string )(_eb .File ,error ){return _f .OpenFile (path ,_f .O_RDWR ,0644)};
+func (_e diskStorage )Open (path string )(_d .File ,error ){return _ga .OpenFile (path ,_ga .O_RDWR ,0644)};type diskStorage struct{};
+
+// Add is not applicable in the diskstore implementation
+func (_ag diskStorage )Add (path string )error {return nil };
